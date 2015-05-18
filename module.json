@@ -1,0 +1,24 @@
+{
+    "name": "Docs",
+    "alias": "docs",
+    "description": "Documentation Module for Phoenix CMS v1",
+    "authors": [
+        { "name": "xLink (Dan Aldridge)", "email": "xLink@cybershade.org" }
+    ],
+    "keywords": [
+        "core-module"
+    ],
+    "version": "v1.0.0",
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Cms\\Modules\\Docs\\Providers\\DocsModuleServiceProvider",
+        "Cms\\Modules\\Docs\\Providers\\DocsEventsProvider",
+        "Cms\\Modules\\Docs\\Providers\\DocsRoutingProvider"
+    ],
+    "aliases": {
+    },
+    "files": [
+        "start.php"
+    ]
+}

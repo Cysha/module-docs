@@ -1,0 +1,21 @@
+{
+    "name": "cysha/pxcms-docs",
+    "type": "pxcms-module",
+    "description": "Documentation Module for Phoenix CMS",
+    "license": "MIT",
+    "authors": [
+        { "name": "xLink", "email": "xLink@cybershade.org" }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "composer/installers"               : "dev-master",
+
+        "league/commonmark"                 : "0.9.*@dev"
+    },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/cysha/installers" }
+    ]
+}
+
+
+
