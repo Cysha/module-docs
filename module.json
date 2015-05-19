@@ -10,7 +10,7 @@
     ],
     "version": "v1.0.0",
     "active": 1,
-    "order": 1,
+    "order": 10,
     "providers": [
         "Cms\\Modules\\Docs\\Providers\\DocsModuleServiceProvider",
         "Cms\\Modules\\Docs\\Providers\\DocsEventsProvider",
