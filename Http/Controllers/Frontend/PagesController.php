@@ -1,10 +1,10 @@
 <?php namespace Cms\Modules\Docs\Http\Controllers\Frontend;
 
-use Cms\Modules\Core\Http\Controllers\BaseModuleController;
+use Cms\Modules\Core\Http\Controllers\BaseFrontendController;
 use Cms\Modules\Docs\Models\Documentation;
 use File;
 
-class PagesController extends BaseModuleController
+class PagesController extends BaseFrontendController
 {
     public $layout = '1-column';
 
