@@ -1,5 +1,5 @@
 {
-    "name": "cysha/pxcms-docs",
+    "name": "cysha/module-docs",
     "type": "pxcms-module",
     "description": "Documentation Module for Phoenix CMS",
     "license": "MIT",
