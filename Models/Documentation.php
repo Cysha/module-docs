@@ -1,4 +1,6 @@
-<?php namespace Cms\Modules\Docs\Models;
+<?php
+
+namespace Cms\Modules\Docs\Models;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Cache\Repository as Cache;
@@ -7,7 +9,6 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Documentation
 {
-
     /**
      * The filesystem implementation.
      *
@@ -25,9 +26,8 @@ class Documentation
     /**
      * Create a new documentation instance.
      *
-     * @param  Filesystem  $files
-     * @param  Cache  $cache
-     * @return void
+     * @param Filesystem $files
+     * @param Cache      $cache
      */
     public function __construct(Filesystem $files, Cache $cache)
     {
@@ -35,13 +35,13 @@ class Documentation
         $this->cache = $cache;
     }
 
-
     /**
      * Get the given documentation page.
      *
-     * @param  string       $version
-     * @param  string       $page
-     * @param  int|bool     $cache
+     * @param string   $version
+     * @param string   $page
+     * @param int|bool $cache
+     *
      * @return string
      */
     public function get($version, $page, $cache = 5)
@@ -51,10 +51,11 @@ class Documentation
 
             if ($this->files->exists($path)) {
                 $content = $this->parseMarkdown($this->files->get($path));
+
                 return $this->replaceLinks($version, $content);
             }
 
-            return null;
+            return;
         };
 
         if ($cache === false) {
@@ -79,20 +80,22 @@ class Documentation
     /**
      * Render the markdown in to HTML.
      *
-     * @param  string  $version
-     * @param  string  $content
+     * @param string $version
+     * @param string $content
+     *
      * @return string
      */
     protected function parseMarkdown($content)
     {
-        return with(new CommonMarkConverter)->convertToHtml($content);
+        return with(new CommonMarkConverter())->convertToHtml($content);
     }
 
     /**
      * Replace the version place-holder in links.
      *
-     * @param  string  $version
-     * @param  string  $content
+     * @param string $version
+     * @param string $content
+     *
      * @return string
      */
     protected function replaceLinks($version, $content)
@@ -103,9 +106,10 @@ class Documentation
     /**
      * Check if the given section exists.
      *
-     * @param  string  $version
-     * @param  string  $page
-     * @return boolean
+     * @param string $version
+     * @param string $page
+     *
+     * @return bool
      */
     public function sectionExists($version, $page)
     {

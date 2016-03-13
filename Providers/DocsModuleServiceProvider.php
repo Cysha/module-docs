@@ -1,10 +1,11 @@
-<?php namespace Cms\Modules\Docs\Providers;
+<?php
+
+namespace Cms\Modules\Docs\Providers;
 
 use Cms\Modules\Core\Providers\BaseModuleProvider;
 
 class DocsModuleServiceProvider extends BaseModuleProvider
 {
-
     /**
      * Register the defined middleware.
      *
@@ -24,5 +25,4 @@ class DocsModuleServiceProvider extends BaseModuleProvider
         'Docs' => [
         ],
     ];
-
 }

@@ -1,8 +1,9 @@
-<?php namespace Cms\Modules\Docs\Http\Controllers\Frontend;
+<?php
+
+namespace Cms\Modules\Docs\Http\Controllers\Frontend;
 
 use Cms\Modules\Core\Http\Controllers\BaseFrontendController;
 use Cms\Modules\Docs\Models\Documentation;
-use File;
 
 class PagesController extends BaseFrontendController
 {
@@ -21,12 +22,10 @@ class PagesController extends BaseFrontendController
         $this->theme->asset()->container('app')->add('prismjs-js', '/modules/docs/prismjs/prism.js');
     }
 
-
     public function getIndex()
     {
         return $this->show('index.md');
     }
-
 
     /**
      * Show a documentation page.
@@ -42,7 +41,6 @@ class PagesController extends BaseFrontendController
         $section = '';
         if ($this->docs->sectionExists($version, $page)) {
             $section .= '/'.$page;
-
         } elseif (!is_null($page)) {
             return redirect('/docs/'.$version);
         }
@@ -59,22 +57,23 @@ class PagesController extends BaseFrontendController
         }
 
         $navigation = $this->docs->get($version, 'navigation', false);
+
         return $this->setView('_layout', [
             // 'index'          => $this->docs->getIndex($version),
-            'contents'         => $content,
-            'nav'              => $navigation,
+            'contents' => $content,
+            'nav' => $navigation,
         ]);
     }
 
     /**
      * Determine if the given URL segment is a valid version.
      *
-     * @param  string  $version
+     * @param string $version
+     *
      * @return bool
      */
     protected function isVersion($version)
     {
         return in_array($version, config('cms.docs.config.versions'));
     }
-
 }
