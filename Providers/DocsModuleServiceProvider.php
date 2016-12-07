@@ -3,6 +3,7 @@
 namespace Cms\Modules\Docs\Providers;
 
 use Cms\Modules\Core\Providers\BaseModuleProvider;
+use Cms\Modules\Docs\Console\Commands\PullDocsCommand;
 
 class DocsModuleServiceProvider extends BaseModuleProvider
 {
@@ -23,6 +24,7 @@ class DocsModuleServiceProvider extends BaseModuleProvider
      */
     protected $commands = [
         'Docs' => [
+            'PullDocsCommand',
         ],
     ];
 }
