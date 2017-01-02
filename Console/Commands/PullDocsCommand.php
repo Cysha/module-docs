@@ -3,8 +3,8 @@
 namespace Cms\Modules\Docs\Console\Commands;
 
 use Illuminate\Console\Command;
-use Pingpong\Modules\Process\Installer;
-use Pingpong\Modules\Repository;
+use Nwidart\Modules\Process\Installer;
+use Nwidart\Modules\Repository;
 
 class PullDocsCommand extends Command
 {
